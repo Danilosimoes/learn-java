@@ -3,7 +3,7 @@ package cadastro.equipamentos;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CadastroEquipamento {
+public class  CadastroEquipamento {
 
     // esse cara e o "Banco"
     private Map<String, Equipamento> estoque = new HashMap<>();

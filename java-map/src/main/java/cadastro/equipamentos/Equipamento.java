@@ -1,6 +1,6 @@
 package cadastro.equipamentos;
 
-public class Equipamento {
+public class Equipamento  {
 
     private String codigo;
     private String nome;
