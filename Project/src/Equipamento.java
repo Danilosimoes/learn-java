@@ -19,19 +19,19 @@ public class Equipamento extends Produto implements Calculos {
 
 
     static public void buscar() {
-        int qtde = -1;
+        Produto qtde = null;
         String codigo;
         codigo = JOptionPane.showInputDialog("Digite o codigo:");
 
-        for (int i = 0; i < listaProdutos.size(); i++) {
+        for (Produto produto : listaProdutos) {
             Produto pdt;
-            pdt = listaProdutos.get(i);
+            pdt = produto;
             if (pdt.getCodigo().equals(codigo)) {
-                qtde = i;
+                qtde = pdt;
             }
         }
-        if (qtde != -1) {
-            JOptionPane.showMessageDialog(null, listaProdutos.get(qtde).toString());
+        if (qtde != null) {
+            JOptionPane.showMessageDialog(null, listaProdutos.toString());
         } else {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }
@@ -47,40 +47,37 @@ public class Equipamento extends Produto implements Calculos {
     }
 
     public static void alterar() {
-        int qtde = -1;
-        String codigo = JOptionPane.showInputDialog("Digite o codigo que deseja alterar os dados");
-        String novo_nome = JOptionPane.showInputDialog("Digite o novo nome");
-        String novo_modelo = JOptionPane.showInputDialog("Digite o novo modelo");
-        String novo_fabricante = JOptionPane.showInputDialog("Digite o novo fabricante");
-        double novo_sem_imposto = Double.parseDouble(JOptionPane.showInputDialog("Digite o novo valor sem imposto"));
-        double novo_com_imposto = Double.parseDouble(JOptionPane.showInputDialog("Digite o novo valor com imposto"));
-        int novo_qtdeEstoque = Integer.parseInt(JOptionPane.showInputDialog("Digite a nova quantidade"));
 
-        for (int i = 0; i < listaProdutos.size(); i++){
-            Produto pdt;
-            pdt = listaProdutos.get(i);
-            if (pdt.getCodigo().equals(codigo)){
-                qtde= i;
+        String codigo = JOptionPane.showInputDialog("Digite o codigo que deseja alterar os dados");
+        Produto qtde = null;
+
+
+        for (Produto pdt : listaProdutos) {
+
+            if (pdt.getCodigo().equals(codigo)) {
+                qtde = pdt;
             }
-            if (qtde != -1){
-                listaProdutos.get(i).setNome(novo_nome);
-                listaProdutos.get(i).setModelo(novo_modelo);
-                listaProdutos.get(i).setFabricante(novo_fabricante);
-                listaProdutos.get(i).setComImposto(novo_com_imposto);
-                listaProdutos.get(i).setSemImposto(novo_sem_imposto);
-                listaProdutos.get(i).setQtdeEstoque(novo_qtdeEstoque);
+            if (qtde != null) {
+
+                String novo_nome = JOptionPane.showInputDialog("Digite o novo nome");
+                String novo_modelo = JOptionPane.showInputDialog("Digite o novo modelo");
+                String novo_fabricante = JOptionPane.showInputDialog("Digite o novo fabricante");
+                double novo_vista = Double.parseDouble(JOptionPane.showInputDialog("Digite o novo valor a vista"));
+                double novo_juros = Double.parseDouble(JOptionPane.showInputDialog("Digite o novo valor com juros"));
+                int novo_qtdeEstoque = Integer.parseInt(JOptionPane.showInputDialog("Digite a nova quantidade"));
+                pdt.setNome(novo_nome);
+                pdt.setModelo(novo_modelo);
+                pdt.setFabricante(novo_fabricante);
+                pdt.setSemImposto(novo_vista);
+                pdt.setComImposto(novo_juros);
+                pdt.setQtdeEstoque(novo_qtdeEstoque);
                 JOptionPane.showMessageDialog(null, "PRODUTO ALTERADO!!");
 
-            }else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Produto não encontrado");
             }
-
-
         }
-
-
     }
-
     @Override
     public String toString() {
         return super.toString();

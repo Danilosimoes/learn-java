@@ -56,9 +56,6 @@ public class Produto {
         this.comImposto = comImposto;
     }
 
-    public double getJuros(double novo_juros) {
-        return semImposto;
-    }
 
     public void setSemImposto(double semImposto) {
         this.semImposto = semImposto;
