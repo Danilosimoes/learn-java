@@ -1,20 +1,17 @@
-import javax.swing.*;
-
 public class Produto {
     private String codigo, nome, modelo, fabricante;
-    private double vista, juros;
+    private double comImposto, semImposto;
     private int qtdeEstoque;
 
 
-    public Produto(String codigo, String nome, String modelo, String fabricante, double vista,
-                   double juros, int qtdeEstoque ){
-
+    public Produto(String codigo, String nome, String modelo, String fabricante, double semImposto,
+                   double comImposto, int qtdeEstoque ){
         this.codigo = codigo;
         this.nome = nome;
-        this. modelo = modelo;
+        this.modelo = modelo;
         this.fabricante = fabricante;
-        this.juros = vista;
-        this.vista = juros;
+        this.semImposto = semImposto;
+        this.comImposto = comImposto;
         this.qtdeEstoque = qtdeEstoque;
 
     }
@@ -51,20 +48,20 @@ public class Produto {
         this.fabricante = fabricante;
     }
 
-    public double getVista() {
-        return vista;
+    public double getComImposto() {
+        return comImposto;
     }
 
-    public void setVista(double vista) {
-        this.vista = vista;
+    public void setComImposto(double comImposto) {
+        this.comImposto = comImposto;
     }
 
     public double getJuros(double novo_juros) {
-        return juros;
+        return semImposto;
     }
 
-    public void setJuros(double juros) {
-        this.juros = juros;
+    public void setSemImposto(double semImposto) {
+        this.semImposto = semImposto;
     }
 
     public int getQtdeEstoque() {
@@ -79,12 +76,12 @@ public class Produto {
     public String toString() {
         return
                 "Codigo: " + codigo +
-                "\nNome: " + nome +
-                "\nModelo: " + modelo +
-                "\nFabricante: " + fabricante +
-                String.format(" \nValor à vista R$ %.2f", vista) +
-                String.format(" \nValor com juros R$ %.2f", juros) +
-                "\nQuantidade em estoque: " + qtdeEstoque;
+                        "\nNome: " + nome +
+                        "\nModelo: " + modelo +
+                        "\nFabricante: " + fabricante +
+                        String.format(" \nValor sem imposto R$ %.2f", semImposto) +
+                        String.format(" \nValor com imposto R$ %.2f", comImposto) +
+                        "\nQuantidade em estoque: " + qtdeEstoque;
     }
 
 
