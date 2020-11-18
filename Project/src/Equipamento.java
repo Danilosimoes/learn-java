@@ -19,19 +19,18 @@ public class Equipamento extends Produto implements Calculos {
 
 
     static public void buscar() {
-        Produto qtde = null;
+        Produto pdt = null;
         String codigo;
         codigo = JOptionPane.showInputDialog("Digite o codigo:");
 
         for (Produto produto : listaProdutos) {
-            Produto pdt;
-            pdt = produto;
-            if (pdt.getCodigo().equals(codigo)) {
-                qtde = pdt;
+
+            if (produto.getCodigo().equals(codigo)) {
+                pdt = produto;
             }
         }
-        if (qtde != null) {
-            JOptionPane.showMessageDialog(null, listaProdutos.toString());
+        if (pdt != null) {
+            JOptionPane.showMessageDialog(null, pdt);
         } else {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
         }

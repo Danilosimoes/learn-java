@@ -50,7 +50,12 @@ public class App {
             }catch (NullPointerException ex){
                 JOptionPane.showMessageDialog(null, "Numero invalido");
 
+
+            }catch (NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Numero invalido");
+
             }
+
         }
         while (menu != 7);
     }
